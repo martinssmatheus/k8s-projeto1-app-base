@@ -1,10 +1,13 @@
 ## deployment backend
 
-apiVersion: apps/v1  
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: php
+  labels:
+    app: php
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: php
@@ -15,7 +18,8 @@ spec:
     spec:
       containers:
       - name: php
-        image: martinssmatheus/php_projeto:1.0
+        image: martinssmatheus/php:1.0
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 
@@ -38,20 +42,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:latest
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: Senha123
-        - name: MYSQL_DATABASE
-          value: meubanco
+        image: martinssmatheus/meubanco:1.0
+        imagePullPolicy: Always
         ports:
         - containerPort: 3306
-          name: mysql
-        
-        volumeMounts:
-          - name: local
-            mountPath: /var/lib/mysql
-      volumes:
-        - name: local
-          persistentVolumeClaim:
-            claimName: local
