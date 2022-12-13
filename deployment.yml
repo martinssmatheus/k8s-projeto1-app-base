@@ -41,4 +41,3 @@ spec:
         image: martinssmatheus/meubanco_projeto:1.0
         ports:
         - containerPort: 3306
-
