@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: php
-        image: martinssmatheus/php:1.0
+        image: martinssmatheus/meubanco_projeto:1.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
