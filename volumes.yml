@@ -6,7 +6,7 @@ metadata:
   name: local
 spec:
   capacity:
-    storage: 10Mi
+    storage: 100Mi
   accessModes:
     - ReadWriteMany
   storageClassName: manual
@@ -25,7 +25,7 @@ spec:
   storageClassName: manual
   resources:
     requests:
-      storage: 10Mi
+      storage: 100Mi
     accessModes:
       - ReadWriteMany
 
