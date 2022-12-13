@@ -42,12 +42,16 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: martinssmatheus/meubanco:1.0
-        imagePullPolicy: Always
+        image: mysql:5.6
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: Senha123
+        - name: MYSQL_DATABASE
+          value: meubanco
         ports:
         - containerPort: 3306
           name: mysql
-
+        
         volumeMounts:
           - name: local
             mountPath: /var/lib/mysql
