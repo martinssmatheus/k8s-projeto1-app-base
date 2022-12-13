@@ -1,0 +1,44 @@
+## deployment backend
+
+apiVersion: apps/v1  
+kind: Deployment
+metadata:
+  name: php
+spec:
+  selector:
+    matchLabels:
+      app: php
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+      - name: php
+        image: martinssmatheus/php_projeto:1.0
+        ports:
+        - containerPort: 80
+
+---
+
+## deployment banco de dados
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: martinssmatheus/meubanco_projeto:1.0
+        ports:
+        - containerPort: 3306
+
